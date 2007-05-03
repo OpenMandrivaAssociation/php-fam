@@ -6,7 +6,7 @@
 Summary:	FAM (File Alteration Monitor) module for PHP
 Name:		php-%{modname}
 Version:	0.1
-Release:	%mkrel 12
+Release:	%mkrel 13
 Group:		Development/PHP
 URL:		http://pecl.php.net
 License:	PHP License
