@@ -6,15 +6,13 @@
 Summary:	FAM (File Alteration Monitor) module for PHP
 Name:		php-%{modname}
 Version:	0.1
-Release:	%mkrel 14
+Release:	%mkrel 15
 Group:		Development/PHP
 URL:		http://pecl.php.net
 License:	PHP License
 Source0:	fam.tar.bz2
 BuildRequires:	php-devel >= 3:5.2.0
 BuildRequires:	fam-devel
-Provides:	php5-fam
-Obsoletes:	php5-fam
 Epoch:		1
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
@@ -27,6 +25,15 @@ files and directories, notifying interested applications of changes.
 %setup -q -n fam
 
 %build
+export CFLAGS="%{optflags}"
+export CXXFLAGS="%{optflags}"
+export FFLAGS="%{optflags}"
+
+%if %mdkversion >= 200710
+export CFLAGS="$CFLAGS -fstack-protector"
+export CXXFLAGS="$CXXFLAGS -fstack-protector"
+export FFLAGS="$FFLAGS -fstack-protector"
+%endif
 
 phpize
 %configure2_5x --with-libdir=%{_lib} \
@@ -55,5 +62,3 @@ EOF
 %doc CREDITS package.xml
 %config(noreplace) %attr(0644,root,root) %{_sysconfdir}/php.d/%{inifile}
 %attr(0755,root,root) %{_libdir}/php/extensions/%{soname}
-
-
