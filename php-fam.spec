@@ -6,7 +6,7 @@
 Summary:	FAM (File Alteration Monitor) module for PHP
 Name:		php-%{modname}
 Version:	0.1
-Release:	%mkrel 15
+Release:	%mkrel 16
 Group:		Development/PHP
 URL:		http://pecl.php.net
 License:	PHP License
@@ -25,15 +25,7 @@ files and directories, notifying interested applications of changes.
 %setup -q -n fam
 
 %build
-export CFLAGS="%{optflags}"
-export CXXFLAGS="%{optflags}"
-export FFLAGS="%{optflags}"
-
-%if %mdkversion >= 200710
-export CFLAGS="$CFLAGS -fstack-protector"
-export CXXFLAGS="$CXXFLAGS -fstack-protector"
-export FFLAGS="$FFLAGS -fstack-protector"
-%endif
+%serverbuild
 
 phpize
 %configure2_5x --with-libdir=%{_lib} \
