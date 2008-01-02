@@ -14,6 +14,7 @@ Source0:	fam.tar.bz2
 BuildRequires:	php-devel >= 3:5.2.0
 BuildRequires:	fam-devel
 Epoch:		1
+BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 This PHP module adds support for FAM (File Alteration Monitor). FAM monitors
