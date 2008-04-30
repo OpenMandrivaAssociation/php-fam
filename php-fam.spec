@@ -3,26 +3,34 @@
 %define soname %{modname}.so
 %define inifile 20_%{modname}.ini
 
-Summary:	FAM (File Alteration Monitor) module for PHP
+Summary:	File Alteration Monitor Functions
 Name:		php-%{modname}
-Version:	0.1
-Release:	%mkrel 19
+Version:	5.0.1
+Release:	%mkrel 1
 Group:		Development/PHP
-URL:		http://pecl.php.net
 License:	PHP License
-Source0:	fam.tar.bz2
+URL:		http://pecl.php.net/package/fam/
+Source0:	http://pecl.php.net/get/fam-%{version}.tgz
 BuildRequires:	php-devel >= 3:5.2.0
 BuildRequires:	fam-devel
 Epoch:		1
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
-This PHP module adds support for FAM (File Alteration Monitor). FAM monitors
-files and directories, notifying interested applications of changes.
+FAM monitors files and directories, notifying interested applications of
+changes. A PHP script may specify a list of files for FAM to monitor using
+the functions provided by this extension. The FAM process is started when the
+first connection from any application to it is opened. It exits after all
+connections to it have been closed. This PHP module adds support for FAM
+(File Alteration Monitor). FAM monitors files and directories, notifying
+interested applications of changes.
 
 %prep
 
-%setup -q -n fam
+%setup -q -n fam-%{version}
+
+# fix version
+perl -pi -e "s|^#define PHP_FAM_VERSION .*|#define PHP_FAM_VERSION \"%{version}\"|g" php_fam.h
 
 %build
 %serverbuild
