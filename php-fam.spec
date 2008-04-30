@@ -28,6 +28,7 @@ interested applications of changes.
 %prep
 
 %setup -q -n fam-%{version}
+[ "../package.xml" != "/" ] && mv -f ../package.xml .
 
 # fix version
 perl -pi -e "s|^#define PHP_FAM_VERSION .*|#define PHP_FAM_VERSION \"%{version}\"|g" php_fam.h
