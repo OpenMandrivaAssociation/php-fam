@@ -6,7 +6,7 @@
 Summary:	File Alteration Monitor Functions
 Name:		php-%{modname}
 Version:	5.0.1
-Release:	%mkrel 2
+Release:	%mkrel 3
 Group:		Development/PHP
 License:	PHP License
 URL:		http://pecl.php.net/package/fam/
@@ -14,7 +14,7 @@ Source0:	http://pecl.php.net/get/fam-%{version}.tgz
 BuildRequires:	php-devel >= 3:5.2.0
 BuildRequires:	fam-devel
 Epoch:		1
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 FAM monitors files and directories, notifying interested applications of
