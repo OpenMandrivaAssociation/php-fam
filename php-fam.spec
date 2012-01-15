@@ -6,7 +6,7 @@
 Summary:	File Alteration Monitor Functions
 Name:		php-%{modname}
 Version:	5.0.1
-Release:	%mkrel 21
+Release:	%mkrel 22
 Group:		Development/PHP
 License:	PHP License
 URL:		http://pecl.php.net/package/fam/
