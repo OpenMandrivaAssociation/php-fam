@@ -11,6 +11,7 @@ Group:		Development/PHP
 License:	PHP License
 URL:		http://pecl.php.net/package/fam/
 Source0:	http://pecl.php.net/get/fam-%{version}.tgz
+Patch0:		fam-5.0.1-php54x.diff
 BuildRequires:	php-devel >= 3:5.2.0
 BuildRequires:	fam-devel
 Epoch:		1
@@ -29,6 +30,8 @@ interested applications of changes.
 
 %setup -q -n fam-%{version}
 [ "../package.xml" != "/" ] && mv -f ../package.xml .
+
+%patch0 -p0
 
 # fix version
 perl -pi -e "s|^#define PHP_FAM_VERSION .*|#define PHP_FAM_VERSION \"%{version}\"|g" php_fam.h
