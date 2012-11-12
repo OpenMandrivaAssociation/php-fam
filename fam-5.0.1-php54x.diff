@@ -1,0 +1,11 @@
+--- fam.c	2008-04-28 17:44:58.000000000 +0200
++++ fam.c.oden	2012-05-06 13:28:07.164584063 +0200
+@@ -41,7 +41,7 @@ static int le_fam, le_fam_r;
+  *
+  * Every user visible function must have an entry in fam_functions[].
+  */
+-function_entry fam_functions[] = {
++zend_function_entry fam_functions[] = {
+ 	PHP_FE(fam_open,	NULL)
+ 	PHP_FE(fam_close,	NULL)
+ 	PHP_FE(fam_monitor_directory,	NULL)
