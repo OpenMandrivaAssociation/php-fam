@@ -9,7 +9,7 @@ Version:	5.0.1
 Release:	24
 Group:		Development/PHP
 License:	PHP License
-URL:		http://pecl.php.net/package/fam/
+URL:		https://pecl.php.net/package/fam/
 Source0:	http://pecl.php.net/get/fam-%{version}.tgz
 Patch0:		fam-5.0.1-php54x.diff
 BuildRequires:	php-devel >= 3:5.2.0
